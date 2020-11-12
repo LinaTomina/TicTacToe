@@ -61,7 +61,7 @@ def check_rows():
     global game_continues
     row_1 = field[0] == field[1] == field[2] != "."
     row_2 = field[3] == field[4] == field[5] != "."
-    row_3 = field[5] == field[7] == field[8] != "."
+    row_3 = field[6] == field[7] == field[8] != "."
     if row_1 or row_2 or row_3:
         game_continues = False
     if row_1:
