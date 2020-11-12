@@ -3,7 +3,7 @@ field = ['.', '.', '.',
          '.', '.', '.',
          '.', '.', '.']
 
-game_continue = True
+game_continues = True
 current_player = "X"
 winner = None
 
@@ -14,7 +14,7 @@ def display_field():
 
 def play_game():
     display_field()
-    while game_continue:
+    while game_continues:
         handle_turn(current_player)
         check_game_over()
         change_player()
@@ -58,12 +58,12 @@ def check_win():
     return
 
 def check_rows():
-    global game_continue
+    global game_continues
     row_1 = field[0] == field[1] == field[2] != "."
     row_2 = field[3] == field[4] == field[5] != "."
     row_3 = field[5] == field[7] == field[8] != "."
     if row_1 or row_2 or row_3:
-        game_continue = False
+        game_continues = False
     if row_1:
         return field[0]
     elif row_2:
@@ -73,12 +73,12 @@ def check_rows():
     return
 
 def check_columns():
-    global game_continue
+    global game_continues
     column_1 = field[0] == field[3] == field[6] != "."
     column_2 = field[1] == field[4] == field[7] != "."
     column_3 = field[2] == field[5] == field[8] != "."
     if column_1 or column_2 or column_3:
-        game_continue = False
+        game_continues = False
     if column_1:
         return field[0]
     elif column_2:
@@ -88,11 +88,11 @@ def check_columns():
     return
 
 def check_diagonals():
-    global game_continue
+    global game_continues
     diagonal_1 = field[0] == field[4] == field[8] != "."
     diagonal_2 = field[6] == field[4] == field[2] != "."
     if diagonal_1 or diagonal_2:
-        game_continue = False
+        game_continues = False
     if diagonal_1:
         return field[0]
     elif diagonal_2:
@@ -100,9 +100,9 @@ def check_diagonals():
     return
 
 def check_tie():
-    global game_continue
+    global game_continues
     if "." not in field:
-        game_continue = False
+        game_continues = False
     return
 
 def change_player():
